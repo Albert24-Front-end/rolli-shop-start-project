@@ -114,4 +114,15 @@ function toggleCartStatus() {
 	}
 	// Обновляем итоговую сумму с учетом доставки
 	document.querySelector(".total-price").innerText = totalPrice;
+
 };
+	// Сохраняем номер телефона в localStorage
+	document.addEventListener("DOMContentLoaded", function() {
+		const phoneInput = document.querySelector(".form-control");
+		if(localStorage.getItem("phoneNumber")) {
+			phoneInput.value = localStorage.getItem("phoneNumber");
+		};
+		phoneInput.addEventListener("input", function() {
+			localStorage.setItem("phoneNumber", phoneInput.value);
+		});
+	});
